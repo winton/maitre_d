@@ -1,13 +1,13 @@
 require 'pp'
 
 $root = File.expand_path('../../', __FILE__)
-require "#{$root}/lib/gem_template/gems"
+require "#{$root}/lib/maitre_d/gems"
 
-GemTemplate::Gems.activate %w(rack-test rspec)
+MaitreD::Gems.activate %w(rack-test rspec)
 
 require 'rack/test'
 
-require "#{$root}/lib/gem_template"
+require "#{$root}/lib/maitre_d"
 
 Spec::Runner.configure do |config|
 end

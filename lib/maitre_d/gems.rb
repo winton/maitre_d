@@ -1,8 +1,8 @@
-unless defined?(GemTemplate::Gems)
+unless defined?(MaitreD::Gems)
   
   require 'yaml'
   
-  module GemTemplate
+  module MaitreD
     module Gems
       class <<self
         
