@@ -13,25 +13,27 @@ rake gems:install
 
 Now your environment is ready to run `passenger start` on the application (or whatever you use to run Sinatra apps).
 
-== /reservations/create
+/reservations/create
+--------------------
 
-=== Post
+### Post
 
     { seconds: 3600, environment: 'beta', user: 'me' }
 
-=== Response
+### Response
 
 Returns state of created reservation:
 
     { status: 'reserved', expires: 1316133837, user: 'me' }
  
-== /reservations/show
+/reservations/show
+------------------
 
-=== Post
+### Post
 
     { environment: 'beta' }
 
-=== Response
+### Response
 
     { status: 'available' }
 
@@ -39,13 +41,14 @@ or
 
     { status: 'reserved', expires: 1316133837, user: 'me' }
 
-== /reservations/destroy
+/reservations/destroy
+---------------------
 
-=== Post
+### Post
 
     { environment: 'beta' }
 
-=== Response
+### Response
 
 Returns state of reservation when you destroyed it:
 
