@@ -29,7 +29,7 @@ Returns state of created reservation:
 /reservations/show
 ------------------
 
-### Post
+### Get
 
     { environment: 'beta' }
 
@@ -44,7 +44,7 @@ or
 /reservations/destroy
 ---------------------
 
-### Post
+### Get
 
     { environment: 'beta' }
 
