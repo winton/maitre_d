@@ -7,3 +7,4 @@ maitre_d:
     rack-test: =0.6.1
     redis: =2.2.2
     sinatra: =1.2.6
+    yajl-ruby: =0.8.3

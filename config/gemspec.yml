@@ -9,6 +9,7 @@ description:
 dependencies:
   - haml
   - lilypad
+  - redis
   - sinatra
 development_dependencies:
   - rake
