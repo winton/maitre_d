@@ -1,12 +1,8 @@
 Application.class_eval do
-  
-  # /reservations/create
 
-  # post: { seconds: 3600, environment: 'beta', user: 'winton' }
-  # return:
-  #   { status: 'reserved', expires: 'TIME', user: 'tung' }
-
-  post '/reservations/create' do
+  get '/reservations/create' do
+    puts '@@@'
+    puts params.inspect
     reservation = Reservation.find(params)
 
     create = 
@@ -18,22 +14,10 @@ Application.class_eval do
     reservation.to_response
   end
 
-  # /reservations/show
-
-  # post: { environment: 'beta' }
-  # return:
-  #   { status: 'available' }
-  #   { status: 'reserved', expires: 'TIME', user: 'tung' }
-
   get '/reservations/show' do
+    puts '!!!'
     Reservation.find(params).to_response
   end
-
-  # /reservations/destroy
-
-  # get: { environment: 'beta' }
-  # return:
-  #   { status: 'reserved', expires: 'TIME', user: 'tung' }
 
   get '/reservations/destroy' do
     reservation = Reservation.find(params)

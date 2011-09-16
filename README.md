@@ -16,7 +16,7 @@ Now your environment is ready to run `passenger start` on the application (or wh
 /reservations/create
 --------------------
 
-### Post
+### Get
 
     { seconds: 3600, environment: 'beta', user: 'me' }
 
