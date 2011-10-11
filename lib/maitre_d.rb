@@ -1,17 +1,19 @@
-require File.dirname(__FILE__) + '/maitre_d/gems'
+require "rubygems"
+require "bundler"
 
-MaitreD::Gems.activate %w(haml lilypad sinatra yajl-ruby)
+Bundler.setup(:default)
 
 $:.unshift File.dirname(__FILE__)
 
-require 'maitre_d/boot/core_ext'
-require 'maitre_d/boot/application'
-require 'maitre_d/boot/sinatra'
-require 'maitre_d/boot/log'
-require 'maitre_d/boot/session'
-require 'maitre_d/boot/haml'
-require 'maitre_d/boot/lilypad'
-require 'maitre_d/boot/redis'
-require 'maitre_d/boot/model'
-require 'maitre_d/boot/controller'
-require 'maitre_d/boot/helper'
+require 'maitre_d/application'
+require 'maitre_d/core_ext'
+
+require 'application/sinatra'
+require 'application/log'
+require 'application/session'
+require 'application/haml'
+require 'application/lilypad'
+require 'application/redis'
+require 'application/model'
+require 'application/controller'
+require 'application/helper'

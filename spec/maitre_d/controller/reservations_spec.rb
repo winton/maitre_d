@@ -13,7 +13,7 @@ describe 'Reservations Controller' do
   end
 
   it "should create a reservation" do
-    post '/reservations/create', {
+    get '/reservations/create', {
       :environment => 'test',
       :seconds => @expires - Time.now.to_i,
       :user => 'tester'

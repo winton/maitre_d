@@ -1,8 +1,6 @@
 Application.class_eval do
 
   get '/reservations/create' do
-    puts '@@@'
-    puts params.inspect
     reservation = Reservation.find(params)
 
     create = 
@@ -15,7 +13,6 @@ Application.class_eval do
   end
 
   get '/reservations/show' do
-    puts '!!!'
     Reservation.find(params).to_response
   end
 
