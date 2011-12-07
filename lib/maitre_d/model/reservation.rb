@@ -65,7 +65,7 @@ class Reservation
 
   def value
     {
-      :branch => @attributes[:expires],
+      :branch => @attributes[:branch],
       :expires => @attributes[:expires] || expire_at.to_i,
       :user => @attributes[:user]
     }
