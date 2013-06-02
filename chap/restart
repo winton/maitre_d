@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+run "cd #{current_path} && touch tmp/restart.txt"

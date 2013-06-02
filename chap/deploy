@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+symlink_configs
+
+run "cd #{release_path} && bundle"
