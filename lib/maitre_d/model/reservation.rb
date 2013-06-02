@@ -4,6 +4,8 @@ class Reservation
 
   attr_reader :attributes
 
+  @@namespace = "maitre_d"
+
   def initialize(attributes={})
     @attributes = attributes
   end
@@ -30,9 +32,16 @@ class Reservation
     Time.at(Time.now.to_i + attributes[:seconds].to_i)
   end
 
+  def symbolize_keys(hash)
+    hash.inject({}) do |options, (key, value)|
+      options[(key.to_sym rescue key) || key] = value
+      options
+    end
+  end
+
   def get
     if val = $redis.get(key)
-      val = Yajl::Parser.parse(val).symbolize_keys
+      val = symbolize_keys(Yajl::Parser.parse(val))
     else
       val = {}
     end
@@ -42,13 +51,20 @@ class Reservation
 
   def key
     raise "environment option not present" unless attributes[:environment]
-    "maitre_d:#{attributes[:environment]}"
+    "#{@@namespace}:#{attributes[:environment]}"
   end
 
   def self.find(attributes)
     res = self.new(attributes)
     res.get
     res
+  end
+
+  def self.all
+    $redis.keys("#{@@namespace}:*").map do |key|
+      m = key.match(/maitre_d\:(.*)\:?/)
+      find(:environment => m[1]) if m and m[1]
+    end.compact
   end
 
   def to_response

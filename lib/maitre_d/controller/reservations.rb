@@ -16,6 +16,11 @@ Application.class_eval do
     Reservation.find(params).to_response
   end
 
+  get '/reservations' do
+    reservations = Reservation.all.collect {|r| r.attributes}
+    Yajl::Encoder.encode(reservations)
+  end
+
   get '/reservations/destroy' do
     reservation = Reservation.find(params)
     reservation.destroy

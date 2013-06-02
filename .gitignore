@@ -2,6 +2,7 @@
 .DS_Store
 *.gem
 *.log
+config/redis.yml
 config/database.yml
 config/deploy.rb
 log

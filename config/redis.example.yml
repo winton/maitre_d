@@ -1,8 +1,8 @@
 development:
-  platform:
+  maitre_d:
     host: localhost
     port: 6379
 production:
-  platform:
+  maitre_d:
     host: localhost
     port: 6379

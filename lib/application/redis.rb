@@ -1,4 +1,5 @@
 require 'redis'
+require 'yaml'
 
 def redis
   $redis ||= (
@@ -21,6 +22,7 @@ def redis
       )
     end
   )
+  puts "yo2"
 end
 
 redis
